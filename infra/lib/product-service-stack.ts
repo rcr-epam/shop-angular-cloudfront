@@ -41,7 +41,7 @@ export class ProductServiceStack extends cdk.Stack {
         stageName: 'prod',
       },
       defaultCorsPreflightOptions: {
-        allowOrigins: apigateway.Cors.ALL_ORIGINS,
+        allowOrigins: ['https://d1cifp48n770r7.cloudfront.net/'],
         allowMethods: apigateway.Cors.ALL_METHODS,
       }
     });
@@ -192,12 +192,12 @@ export class ProductServiceStack extends cdk.Stack {
     cdk.Tags.of(this).add("Task 3", "Products API");
 
     // Cleanup all log groups
-    cdk.Aspects.of(this).add({
-      visit(node): void {
-        if (node instanceof cdk.aws_logs.LogGroup) {
-          node.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
-        }
-      },
-    });
+    // cdk.Aspects.of(this).add({
+    //   visit(node): void {
+    //     if (node instanceof cdk.aws_logs.LogGroup) {
+    //       node.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    //     }
+    //   },
+    // });
   }
 }

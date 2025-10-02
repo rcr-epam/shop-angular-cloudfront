@@ -13,11 +13,7 @@ export const handler = async (
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({
-        success: true,
-        data: MOCK_PRODUCTS,
-        total: MOCK_PRODUCTS.length
-      })
+      body: JSON.stringify(MOCK_PRODUCTS)
     };
   } catch (error) {
     console.error('Error fetching products:', error);
