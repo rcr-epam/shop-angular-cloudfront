@@ -14,8 +14,8 @@ export class DeploymentService extends Construct {
     const bucket = new Bucket(this, "FrontEnd_Bucket", {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       websiteIndexDocument: "index.html",
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
+      // removalPolicy: cdk.RemovalPolicy.DESTROY,
+      // autoDeleteObjects: true,
     });
 
     // Create a CloudFront distribution
