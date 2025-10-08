@@ -5,7 +5,7 @@ import { ProductServiceStack } from '../lib/product-service-stack';
 
 const app = new cdk.App();
 new DeployWebAppStack(app, 'DeployWebAppStack', {});
-new ProductServiceStack(app, 'ProductServiceStack', {});
+new ProductServiceStack(app, 'ProductServiceStack', {productsTable:'products', stockTable: 'stock'});
 
 // Some final Tags
 cdk.Tags.of(app).add('Course', 'CloudeX: AWS Practitioner JS');

@@ -2,13 +2,23 @@ import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as lambdaNodejs from "aws-cdk-lib/aws-lambda-nodejs";
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+
 import * as path from 'path';
 import { Construct } from 'constructs';
 
+export type ProductServiceStackProps = cdk.StackProps & {
+  productsTable: string;
+  stockTable: string
+};
 export class ProductServiceStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: ProductServiceStackProps) {
     super(scope, id, props);
 
+    // The Products table was created using AWS Console so we import it here
+    const productsTable = dynamodb.Table.fromTableName(this, 'ExistingTable', props.productsTable);
+    const stockTable = dynamodb.Table.fromTableName(this, 'ExistingStockTable', props.stockTable);
+    
     const getProductsLambda = new lambdaNodejs.NodejsFunction(this, 'GetProducts', {
       entry: path.join(__dirname, '../src/lambda','get-products-list.ts'),
       runtime: lambda.Runtime.NODEJS_22_X,
@@ -17,9 +27,16 @@ export class ProductServiceStack extends cdk.Stack {
       bundling: {
         minify: true,
         sourceMap: true
-      }
-
+      },
+      environment: {
+        PRODUCTS_TABLE_NAME: props.productsTable,
+        STOCKS_TABLE_NAME: props.stockTable
+      },
     });
+    getProductsLambda.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    // grant read and write permissions to the Lambda function
+    productsTable.grantReadWriteData(getProductsLambda);
+    stockTable.grantReadWriteData(getProductsLambda);
 
     // Lambda function for getting product by ID
     const getProductByIdLambda = new lambdaNodejs.NodejsFunction(this, 'GetProductById', {
@@ -32,6 +49,10 @@ export class ProductServiceStack extends cdk.Stack {
         sourceMap: true
       }
     });
+    getProductByIdLambda.applyRemovalPolicy(cdk.RemovalPolicy.DESTROY);
+    // grant read and write permissions to the Lambda function
+    productsTable.grantReadWriteData(getProductByIdLambda);
+    stockTable.grantReadWriteData(getProductByIdLambda);
 
     // Create API Gateway REST API with Swagger documentation
     const api = new apigateway.RestApi(this, 'ProductsAPI', {

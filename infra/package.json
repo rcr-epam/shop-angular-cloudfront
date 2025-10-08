@@ -11,7 +11,8 @@
     "cdk": "cdk",
     "deploy": "npx cdk deploy",
     "synth": "npx cdk synth",
-    "clean": "rm -rf ./cdk.out ./dist"
+    "clean": "rm -rf ./cdk.out ./dist",
+    "upload-data": "ts-node ./scripts/upload-data.ts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.153",
@@ -26,6 +27,8 @@
   },
   "dependencies": {
     "@aws-cdk/aws-lambda-nodejs": "^1.203.0",
+    "@aws-sdk/client-dynamodb": "^3.902.0",
+    "@aws-sdk/lib-dynamodb": "^3.902.0",
     "aws-cdk-lib": "2.214.0",
     "constructs": "^10.0.0"
   }
