@@ -1,0 +1,122 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "title": "Wireless Bluetooth Headphones",
+    "description": "High-quality over-ear headphones with noise cancellation and 30-hour battery life",
+    "price": 129.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440002",
+    "title": "Smartphone Case - Clear",
+    "description": "Transparent protective case compatible with most smartphone models",
+    "price": 15.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440003",
+    "title": "USB-C Charging Cable",
+    "description": "Fast charging USB-C cable, 6 feet length, braided design",
+    "price": 8.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440004",
+    "title": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with precision optical sensor",
+    "price": 24.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440005",
+    "title": "Coffee Mug - Ceramic",
+    "description": "Large 16oz ceramic coffee mug with comfortable handle",
+    "price": 12.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440006",
+    "title": "Mechanical Keyboard",
+    "description": "RGB backlit mechanical keyboard with blue switches",
+    "price": 89.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440007",
+    "title": "Desk Lamp - LED",
+    "description": "Adjustable LED desk lamp with touch controls and USB charging port",
+    "price": 39.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440008",
+    "title": "Water Bottle - Stainless Steel",
+    "description": "Insulated stainless steel water bottle, 32oz capacity",
+    "price": 27.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440009",
+    "title": "Notebook - Lined",
+    "description": "Premium lined notebook with leather cover, 200 pages",
+    "price": 18.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440010",
+    "title": "Portable Charger",
+    "description": "10,000mAh portable battery pack with dual USB outputs",
+    "price": 29.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440011",
+    "title": "Bluetooth Speaker",
+    "description": "Waterproof portable Bluetooth speaker with 12-hour battery",
+    "price": 49.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440012",
+    "title": "Screen Protector",
+    "description": "Tempered glass screen protector with easy installation kit",
+    "price": 99.9
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440013",
+    "title": "Backpack - Laptop",
+    "description": "Water-resistant laptop backpack with multiple compartments",
+    "price": 59.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440014",
+    "title": "Gaming Controller",
+    "description": "Wireless gaming controller compatible with PC and console",
+    "price": 54.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440015",
+    "title": "Webcam - HD",
+    "description": "1080p HD webcam with built-in microphone and auto-focus",
+    "price": 34.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440016",
+    "title": "Phone Stand",
+    "description": "Adjustable phone stand for desk, compatible with all devices",
+    "price": 11.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440017",
+    "title": "Wireless Earbuds",
+    "description": "True wireless earbuds with charging case and noise cancellation",
+    "price": 79.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440018",
+    "title": "Monitor Stand",
+    "description": "Adjustable monitor stand with storage compartment",
+    "price": 45.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440019",
+    "title": "Cable Organizer",
+    "description": "Desktop cable management solution with multiple slots",
+    "price": 15.99
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440020",
+    "title": "Smart Watch Band",
+    "description": "Silicone sport band for smart watches, multiple colors available",
+    "price": 19.99
+  }
+]

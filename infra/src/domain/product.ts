@@ -5,3 +5,8 @@ export interface Product {
   price: number;
   title: string;
 }
+
+export interface Stock {
+  product_id: string;
+  count: number;
+}

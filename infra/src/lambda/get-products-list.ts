@@ -1,34 +1,23 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { MOCK_PRODUCTS } from '../utils/mock-data';
+import { fetchProducts } from './data-access';
+import { InternalServerErrorResponse, OKResponse } from '../utils/utils';
 
+/**
+ * Handler function for fetching the list of products.
+ * Most of the logic goes into the data-access module.
+ * 
+ * @param event API Gateway Proxy Event
+ * @returns 
+ */
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  console.log('Event:', JSON.stringify(event, null, 2));
+  console.log('Fetch Products List:', JSON.stringify(event, null, 2));
 
-  try {
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify(MOCK_PRODUCTS)
-    };
-  } catch (error) {
-    console.error('Error fetching products:', error);
-
-    return {
-      statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify({
-        success: false,
-        error: 'Internal server error',
-        message: error instanceof Error ? error.message : 'Unknown error occurred'
-      })
-    };
-  }
+  const {products, error} = await fetchProducts();
+  if (error) return InternalServerErrorResponse();  
+  
+  return OKResponse(products);
 };
+
+
