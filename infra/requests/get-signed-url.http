@@ -1,0 +1,1 @@
+GET https://57ehiwq9ca.execute-api.us-east-2.amazonaws.com/prod/import?fileName=products.csv
