@@ -27,7 +27,7 @@ export const handler = async (event: S3Event): Promise<void> => {
 
   try {
     await Promise.all(promises);
-    console.log('Successfully processed all files');
+    console.log('Successfully  parsed all files');
   } catch (error) {
     console.error('Error processing files:', error);
     throw error;
@@ -66,15 +66,15 @@ async function processS3Object(record: S3EventRecord): Promise<void> {
       // TODO: Persist or process product
     });
 
-    // Optional: Move processed file to a different folder
-    const processedKey = key.replace('uploaded/', 'processed/');
+    // Optional: Move  parsed file to a different folder
+    const parsedKey = key.replace('uploaded/', ' parsed/');
 
-    // Copy to processed folder
+    // Copy to  parsed folder
     await s3Client.send(
       new CopyObjectCommand({
         Bucket: bucket,
         CopySource: `${bucket}/${key}`,
-        Key: processedKey,
+        Key: parsedKey,
       }),
     );
 
@@ -87,7 +87,7 @@ async function processS3Object(record: S3EventRecord): Promise<void> {
     );
 
     console.log(
-      `Successfully processed and moved file to: s3://${bucket}/${processedKey}`,
+      `Successfully  parsed and moved file to: s3://${bucket}/${parsedKey}`,
     );
   } catch (error) {
     console.error(`Error processing file ${key}:`, error);
